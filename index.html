@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BananaGold | Keripik Pisang Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-yellow: #FFD93D;
+            --dark-brown: #1A120B;
+            --text-dark: #333;
+            --text-light: #F7F1E5;
+            --card-bg-light: #FEFEFE;
+            --hero-overlay: rgba(0,0,0,0.6);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--primary-yellow); /* Background kuning */
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Navigasi */
+        nav {
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--primary-yellow); /* Navigasi tetap kuning */
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .logo {
+            font-family: 'Pacifico', cursive;
+            font-size: 26px;
+            color: var(--dark-brown);
+        }
+
+        .nav-links ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links ul li {
+            margin-left: 30px;
+        }
+
+        .nav-links ul li a {
+            text-decoration: none;
+            color: var(--dark-brown);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .nav-links ul li a:hover {
+            color: var(--text-dark);
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        header {
+            height: 60vh; /* Tinggi hero section lebih rendah */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), 
+                        url('https://images.unsplash.com/photo-1590005354167-6da97870c747?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            border-radius: 20px; /* Sudut membulat */
+            margin: 20px 8%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-overlay-content {
+            background-color: rgba(255, 255, 255, 0.95); /* Box putih transparan */
+            padding: 30px 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--text-dark);
+        }
+
+        .hero-overlay-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: var(--dark-brown);
+        }
+
+        .hero-overlay-content p {
+            font-size: 1rem;
+            max-width: 500px;
+            margin: 0 auto 25px;
+            opacity: 0.8;
+        }
+        
+        .btn-lihat-menu {
+            display: inline-block;
+            background-color: var(--dark-brown);
+            color: var(--primary-yellow);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn-lihat-menu:hover {
+            background-color: #afac03;
+            transform: translateY(-3px);
+        }
+
+
+        /* Product Section */
+        .container {
+            padding: 80px 8%;
+        }
+
+        .title-section {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .title-section h2 {
+            font-size: 2.5rem;
+            color: var(--dark-brown);
+            margin-bottom: 10px;
+        }
+        .title-section p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        /* Card Produk */
+        .card {
+            background: var(--card-bg-light);
+            border-radius: 24px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(255, 197, 8, 0.15);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 18px;
+            margin-bottom: 20px;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--dark-brown);
+        }
+
+        .card .description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+            min-height: 40px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .price {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--dark-brown);
+        }
+
+        /* Tombol Pesan */
+        .btn-wa {
+            background: #25D366;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .btn-wa:hover {
+            background: #128c7e;
+            transform: scale(1.05);
+        }
+
+        /* Fitur Kustom */
+        .custom-order-section {
+            background-color: var(--dark-brown);
+            color: var(--text-light);
+            padding: 80px 8%;
+            text-align: center;
+            margin-top: 60px;
+        }
+        .custom-order-section h2 {
+            color: var(--primary-yellow);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .custom-order-section p {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+        .btn-custom-wa {
+            background-color: var(--primary-yellow);
+            color: var(--dark-brown);
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .btn-custom-wa:hover {
+            background-color: #c29801;
+            transform: translateY(-3px);
+        }
+
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid rgba(0,0,0,0.1);
+            font-size: 0.9rem;
+            opacity: 0.7;
+            color: var(--dark-brown);
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            nav, header, .container, .custom-order-section, footer {
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+            .hero-overlay-content h1 { font-size: 2rem; }
+            .hero-overlay-content p { font-size: 0.9rem; }
+            .nav-links { display: none; } /* Sembunyikan navigasi link di HP */
+            .title-section h2 { font-size: 2rem; }
+            .custom-order-section h2 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">BananaGold</div>
+        <div class="nav-links">
+            <ul>
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#menu-produk">Menu</a></li>
+                <li><a href="#kustom-pesanan">Kustom</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="home">
+        <div class="hero-overlay-content">
+            <h1>keripik nagih 513</h1>
+            <p>Keripik pisang dengan bumbu rahasia yang bikin lidah menari. Renyahnya awet, rasanya kangenin!</p>
+            <a href="#menu-produk" class="btn-lihat-menu">Lihat Menu</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <div id="menu-produk" class="title-section">
+            <h2>Varian Krispi Kami</h2>
+            <p>Pilih rasa favoritmu, klik dan pesan langsung via WhatsApp!</p>
+        </div>
+
+        <div class="grid">
+            
+            <div class="card">
+                <img src="c:\Users\sukses\Downloads\WhatsApp Image 2026-01-18 at 20.25.41.jpeg" alt="Keripik Pisang Original">
+                <h3>Original Klasik</h3>
+                <p class="description">Rasa pisang asli yang manis dan gurih, tanpa tambahan.</p>
+                <div class="price-row">
+                    <span class="price">Rp 5.000</span>
+                    <a href="https://wa.me/6282124360741?text=Halo%20BananaGold,%20saya%20mau%20pesan%20Keripik%20Pisang%20Original.%0AJumlah:%20%0ANama:%20%0AAlamat:%20%0ACatatan%20Khusus:%20" class="btn-wa" target="_blank">Pesan</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="c:\Users\sukses\Downloads\WhatsApp Image 2026-01-18 at 20.25.49.jpeg" alt="Keripik Pisang Manis">
+                <h3>Manis</h3>
+                <p class="description">Manis alami gula aren yang karamel, renyah luar biasa.</p>
+                <div class="price-row">
+                    <span class="price">Rp 8.000</span>
+                    <a href="https://wa.me/6282124360741?text=Halo%20BananaGold,%20saya%20mau%20pesan%20Keripik%20Pisang%20Manis%20Gula%20Aren.%0AJumlah:%20%0ANama:%20%0AAlamat:%20%0ACatatan%20Khusus:%20" class="btn-wa" target="_blank">Pesan</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="c:\Users\sukses\Downloads\WhatsApp Image 2026-01-18 at 20.25.37.jpeg"
+                <p class="description">Sensasi lezat cokelat premium membalut keripik pisang.</p>
+                <div class="price-row">
+                    <span class="price">Rp 10.000</span>
+                    <a href="https://wa.me/6282124360741?text=Halo%20BananaGold,%20saya%20mau%20pesan%20Keripik%20Pisang%20Cokelat%20Bliss.%0AJumlah:%20%0ANama:%20%0AAlamat:%20%0ACatatan%20Khusus:%20" class="btn-wa" target="_blank">Pesan</a>
+                </div>
+            </div>
+    </main>
+
+    <section id="kustom-pesanan" class="custom-order-section">
+        <h2>Ingin Pesanan Spesial?</h2>
+        <p>Jika kamu memiliki permintaan khusus, atau ingin memesan dalam jumlah besar, silakan hubungi kami langsung via WhatsApp untuk kustomisasi pesananmu!</p>
+        <a href="https://wa.me/6282124360741?text=Halo%20BananaGold,%20saya%20punya%20pesanan%20kustom%20untuk%20keripik%20pisang%0A%0ARincian%20Pesanan:%20%0ANama:%20%0AAlamat:%20%0ANomor%20HP:%20" class="btn-custom-wa" target="_blank">Kustom Pesanan Sekarang</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 BananaGold Premium Chips. Dibuat dengan cinta untuk camilan terbaik.</p>
+    </footer>
+
+</body>
+</html>
