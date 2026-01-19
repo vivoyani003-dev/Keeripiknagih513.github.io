@@ -1,342 +1,95 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BananaGold | Keripik Pisang Premium</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <title>Kripik Nagih - Kriuknya Juara!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        :root {
-            --primary-yellow: #FFD93D;
-            --dark-brown: #1A120B;
-            --text-dark: #333;
-            --text-light: #F7F1E5;
-            --card-bg-light: #FEFEFE;
-            --hero-overlay: rgba(0,0,0,0.6);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        body {
-            background-color: var(--primary-yellow); /* Background kuning */
-            color: var(--text-dark);
-            overflow-x: hidden;
-        }
-
-        /* Navigasi */
-        nav {
-            padding: 20px 8%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: var(--primary-yellow); /* Navigasi tetap kuning */
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-        }
-
-        .logo {
-            font-family: 'Pacifico', cursive;
-            font-size: 26px;
-            color: var(--dark-brown);
-        }
-
-        .nav-links ul {
-            list-style: none;
-            display: flex;
-        }
-
-        .nav-links ul li {
-            margin-left: 30px;
-        }
-
-        .nav-links ul li a {
-            text-decoration: none;
-            color: var(--dark-brown);
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-        .nav-links ul li a:hover {
-            color: var(--text-dark);
-            opacity: 0.8;
-        }
-
-        /* Hero Section */
-        header {
-            height: 60vh; /* Tinggi hero section lebih rendah */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            background: linear-gradient(var(--hero-overlay), var(--hero-overlay)), 
-                        url('https://images.unsplash.com/photo-1590005354167-6da97870c747?auto=format&fit=crop&w=1200&q=80');
-            background-size: cover;
-            background-position: center;
-            border-radius: 20px; /* Sudut membulat */
-            margin: 20px 8%;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-overlay-content {
-            background-color: rgba(255, 255, 255, 0.95); /* Box putih transparan */
-            padding: 30px 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            max-width: 600px;
-            margin: 0 auto;
-            color: var(--text-dark);
-        }
-
-        .hero-overlay-content h1 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            color: var(--dark-brown);
-        }
-
-        .hero-overlay-content p {
-            font-size: 1rem;
-            max-width: 500px;
-            margin: 0 auto 25px;
-            opacity: 0.8;
-        }
-        
-        .btn-lihat-menu {
-            display: inline-block;
-            background-color: var(--dark-brown);
-            color: var(--primary-yellow);
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        .btn-lihat-menu:hover {
-            background-color: #afac03;
-            transform: translateY(-3px);
-        }
-
-
-        /* Product Section */
-        .container {
-            padding: 80px 8%;
-        }
-
-        .title-section {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .title-section h2 {
-            font-size: 2.5rem;
-            color: var(--dark-brown);
-            margin-bottom: 10px;
-        }
-        .title-section p {
-            font-size: 1.1rem;
-            opacity: 0.8;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        /* Card Produk */
-        .card {
-            background: var(--card-bg-light);
-            border-radius: 24px;
-            padding: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-align: center;
-        }
-
-        .card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(255, 197, 8, 0.15);
-        }
-
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 18px;
-            margin-bottom: 20px;
-        }
-
-        .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: var(--dark-brown);
-        }
-
-        .card .description {
-            font-size: 0.9rem;
-            color: #666;
-            margin-bottom: 15px;
-            min-height: 40px;
-        }
-
-        .price-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .price {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: var(--dark-brown);
-        }
-
-        /* Tombol Pesan */
-        .btn-wa {
-            background: #25D366;
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 12px;
-            font-weight: bold;
-            font-size: 0.9rem;
-            transition: 0.3s;
-        }
-
-        .btn-wa:hover {
-            background: #128c7e;
-            transform: scale(1.05);
-        }
-
-        /* Fitur Kustom */
-        .custom-order-section {
-            background-color: var(--dark-brown);
-            color: var(--text-light);
-            padding: 80px 8%;
-            text-align: center;
-            margin-top: 60px;
-        }
-        .custom-order-section h2 {
-            color: var(--primary-yellow);
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        .custom-order-section p {
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin: 0 auto 40px;
-            opacity: 0.9;
-        }
-        .btn-custom-wa {
-            background-color: var(--primary-yellow);
-            color: var(--dark-brown);
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        .btn-custom-wa:hover {
-            background-color: #c29801;
-            transform: translateY(-3px);
-        }
-
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            border-top: 1px solid rgba(0,0,0,0.1);
-            font-size: 0.9rem;
-            opacity: 0.7;
-            color: var(--dark-brown);
-        }
-
-        /* Responsif */
-        @media (max-width: 768px) {
-            nav, header, .container, .custom-order-section, footer {
-                padding-left: 5%;
-                padding-right: 5%;
-            }
-            .hero-overlay-content h1 { font-size: 2rem; }
-            .hero-overlay-content p { font-size: 0.9rem; }
-            .nav-links { display: none; } /* Sembunyikan navigasi link di HP */
-            .title-section h2 { font-size: 2rem; }
-            .custom-order-section h2 { font-size: 2rem; }
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        .gradient-yellow { background: linear-gradient(135deg, #f6d365 0%, #fda085 100%); }
+        .product-card:hover { transform: translateY(-10px); transition: all 0.3s ease; }
     </style>
 </head>
-<body>
+<body class="bg-orange-50 text-gray-800">
 
-    <nav>
-        <div class="logo">BananaGold</div>
-        <div class="nav-links">
-            <ul>
-                <li><a href="#home">Beranda</a></li>
-                <li><a href="#menu-produk">Menu</a></li>
-                <li><a href="#kustom-pesanan">Kustom</a></li>
-            </ul>
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-orange-600 tracking-tight">KRIPK NAGIH</h1>
+            <div class="hidden md:flex space-x-8 font-medium">
+                <a href="#home" class="hover:text-orange-500">Beranda</a>
+                <a href="#rasa" class="hover:text-orange-500">Varian Rasa</a>
+                <a href="#tentang" class="hover:text-orange-500">Keunggulan</a>
+            </div>
+            <a href="https://wa.me/6282126320741?text=Halo,%20saya%20ingin%20pesan%20Kripik%20Nagih" class="bg-orange-500 text-white px-6 py-2 rounded-full font-semibold hover:bg-orange-600 transition">Pesan Sekarang</a>
         </div>
     </nav>
-    <header id="home">
-        
-        <div class="hero-overlay-content">
-            <h1>keripik nagih 513</h1>
-            <p>Keripik pisang dengan bumbu rahasia yang bikin lidah menari. Renyahnya awet, rasanya kangenin!</p>
-            <a href="#menu-produk" class="btn-lihat-menu">Lihat Menu</a>
+
+    <section id="home" class="pt-32 pb-20 px-6 gradient-yellow text-white">
+        <div class="container mx-auto flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 mb-12 md:mb-0">
+                <h2 class="text-5xl md:text-6xl font-bold leading-tight mb-6">Nikmati Kripik Pisang <br><span class="text-orange-900">Premium & Renyah!</span></h2>
+                <p class="text-lg mb-8 opacity-90">Camilan sehat dari pisang pilihan dengan bumbu yang melimpah. Sekali coba, dijamin bakal nagih terus!</p>
+                <a href="#rasa" class="bg-white text-orange-600 px-10 py-4 rounded-xl font-bold text-lg shadow-lg hover:bg-orange-100 transition">Lihat 3 Varian Rasa</a>
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-orange-200/50 rounded-full blur-3xl"></div>
+                    <img src="https://i.postimg.cc/NFyJsp8H/Whats-App-Image-2026-01-18-at-20-25-49.jpg" alt="Kripik Pisang" class="relative rounded-3xl shadow-2xl w-80 md:w-96 border-8 border-white">
+                </div>
+            </div>
         </div>
-    </header>
-
-    <main class="container">
-        <div id="menu-produk" class="title-section">
-            <h2>Varian Krispi Kami</h2>
-            <p>Pilih rasa favoritmu, klik dan pesan langsung via WhatsApp!</p>
-        </div>
-
-        <div class="grid">
-            
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=400&q=80" alt="Keripik Pisang Original">
-                <h3>Original Klasik</h3>
-                <p class="description">Rasa pisang asli yang manis dan gurih, tanpa tambahan.</p>
-                <div class="price-row">
-                    <span class="price">Rp 5.000</span>
-                    <a href="https://wa.me/6282124360741?text=Halo%20BananaGold,%20saya%20mau%20pesan%20Keripik%20Pisang%20Original.%0AJumlah:%20%0ANama:%20%0AAlamat:%20%0ACatatan%20Khusus:%20" class="btn-wa" target="_blank">Pesan</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/3ac5923e-35c7-4189-88ea-901e56a13a19" alt="Keripik Pisang Manis">
-                <h3>Manis</h3>
-                <p class="description">Manis alami gula aren yang karamel, renyah luar biasa.</p>
-                <div class="price-row">
-                    <span class="price">Rp 6.000</span>
-                    <a href="https://wa.me/6282124360741?text=Halo%20BananaGold,%20saya%20mau%20pesan%20Keripik%20Pisang%20Manis%20Gula%20Aren.%0AJumlah:%20%0ANama:%20%0AAlamat:%20%0ACatatan%20Khusus:%20" class="btn-wa" target="_blank">Pesan</a>
-                </div>
-            </div>
-
-            <div class="card">
-                <img src="c:\Users\sukses\Downloads\WhatsApp Image 2026-01-18 at 20.25.37.jpeg">
-                <p class="description">Sensasi lezat cokelat premium membalut keripik pisang.</p>
-                <div class="price-row">
-                    <span class="price">Rp 8.000</span>
-                    <a href="https://wa.me/6282124360741?text=Halo%20BananaGold,%20saya%20mau%20pesan%20Keripik%20Pisang%20Cokelat%20Bliss.%0AJumlah:%20%0ANama:%20%0AAlamat:%20%0ACatatan%20Khusus:%20" class="btn-wa" target="_blank">Pesan</a>
-                </div>
-            </div>
-    </main>
-
-    <section id="kustom-pesanan" class="custom-order-section">
-        <h2>Ingin Pesanan Spesial?</h2>
-        <p>Jika kamu memiliki permintaan khusus, atau ingin memesan dalam jumlah besar, silakan hubungi kami langsung via WhatsApp untuk kustomisasi pesananmu!</p>
-        <a href="https://wa.me/6282124360741?text=Halo%20BananaGold,%20saya%20punya%20pesanan%20kustom%20untuk%20keripik%20pisang%0A%0ARincian%20Pesanan:%20%0ANama:%20%0AAlamat:%20%0ANomor%20HP:%20" class="btn-custom-wa" target="_blank">Kustom Pesanan Sekarang</a>
     </section>
 
-    <footer>
-        <p>&copy; 2024 BananaGold Premium Chips. Dibuat dengan cinta untuk camilan terbaik.</p>
+    <section id="rasa" class="py-24 px-6">
+        <div class="container mx-auto text-center">
+            <h3 class="text-4xl font-bold mb-4">Pilih <span class="text-orange-500">Favoritmu!</span></h3>
+            <p class="text-gray-500 mb-16">Tersedia dalam 3 varian rasa yang menggoyang lidah</p>
+            
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="bg-white p-8 rounded-3xl shadow-xl product-card border border-orange-100 text-center">
+                    <div class="w-20 h-20 bg-yellow-100 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">🍌</div>
+                    <h4 class="text-2xl font-bold mb-3">Original Manis</h4>
+                    <p class="text-gray-500 mb-6 text-sm">Rasa klasik pisang pilihan dengan sentuhan manis yang pas dan renyah.</p>
+                    <p class="text-2xl font-bold text-orange-600 mb-6">Rp 5.000</p>
+                    <a href="https://wa.me/6282126320741?text=Halo,%20saya%20pesan%20Rasa%20Original" class="block w-full py-3 bg-orange-500 text-white rounded-xl font-bold hover:bg-orange-600 shadow-md">Pilih Rasa Ini</a>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-xl product-card border border-orange-100 text-center relative">
+                    <div class="absolute -top-4 left-1/2 -translate-x-1/2 bg-red-500 text-white px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest">Paling Laris</div>
+                    <div class="w-20 h-20 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">🍫</div>
+                    <h4 class="text-2xl font-bold mb-3">Cokelat Lumer</h4>
+                    <p class="text-gray-500 mb-6 text-sm">Balutan bubuk cokelat premium yang tebal dan melimpah di setiap gigitan.</p>
+                    <p class="text-2xl font-bold text-orange-600 mb-6">Rp 7.000</p>
+                    <a href="https://wa.me/6282126320741?text=Halo,%20saya%20pesan%20Rasa%20Cokelat" class="block w-full py-3 bg-orange-500 text-white rounded-xl font-bold hover:bg-orange-600 shadow-md">Pilih Rasa Ini</a>
+                </div>
+
+                <div class="bg-white p-8 rounded-3xl shadow-xl product-card border border-orange-100 text-center">
+                    <div class="w-20 h-20 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-6 text-3xl">🔥</div>
+                    <h4 class="text-2xl font-bold mb-3">Pedas Gurih</h4>
+                    <p class="text-gray-500 mb-6 text-sm">Paduan rasa pedas nagih dan gurih rempah yang bikin susah berhenti makan.</p>
+                    <p class="text-2xl font-bold text-orange-600 mb-6">Rp 6.000</p>
+                    <a href="https://wa.me/6282126320741?text=Halo,%20saya%20pesan%20Rasa%20Pedas" class="block w-full py-3 bg-orange-500 text-white rounded-xl font-bold hover:bg-orange-600 shadow-md">Pilih Rasa Ini</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6 bg-orange-600 text-white text-center">
+        <div class="container mx-auto max-w-2xl">
+            <h3 class="text-3xl font-bold mb-6">Lagi di Rumah Aja? Temani Waktumu dengan Kripik Nagih!</h3>
+            <p class="mb-10 opacity-80">Siap kirim ke seluruh wilayah. Pesan sekarang melalui WhatsApp untuk respon cepat.</p>
+            <a href="https://wa.me/6282126320741" class="inline-flex items-center space-x-3 bg-white text-orange-600 px-10 py-4 rounded-full font-bold text-lg hover:bg-gray-100 transition shadow-2xl">
+                <i class="fab fa-whatsapp text-2xl"></i>
+                <span>Order via WhatsApp</span>
+            </a>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center border-t border-orange-100 text-gray-400 text-sm">
+        <p>&copy; 2026 KRIPK NAGIH. Semua Hak Dilindungi.</p>
     </footer>
 
 </body>
